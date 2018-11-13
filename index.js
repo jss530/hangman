@@ -59,7 +59,7 @@ function resetGame() {
 
 function updateDisplay() {
 
-    document.getElementById("total-wines").innerText = wins;
+    document.getElementById("total-wins").innerText = wins;
     document.getElementById("current-word").innerText = "";
 
     for (var i = 0; i < guessingWord.length; i++) {

@@ -6,6 +6,7 @@ let currentWordIndex;
 let remainingGuesses = 0;
 let gameStarted = false;
 let hasFinished = false;
+let wins = 0;
 
 function get(url) {
   return new Promise(function(resolve, reject) {
@@ -41,4 +42,22 @@ function resetGame() {
     document.getElementById("youwin").style.cssText = "display: none";
 
     updateDisplay();
+};
+
+function updateDisplay() {
+
+    document.getElementById("total-wines").innerText = wins;
+    document.getElementById("current-word").innerText = "";
+
+    for (var i = 0; i < guessingWord.length; i++) {
+        document.getElementById("current-word").innerText += guessingWord[i];
+    }
+
+    document.getElementById("guesses-remaining").innerText = remainingGuesses;
+    document.getElementById("wrong-guesses").innerText = guessedLetters;
+
+    if(remainingGuesses <= 0) {
+        document.getElementById("you-lose").style.cssText = "display: block";
+        hasFinished = true;
+    }
 };

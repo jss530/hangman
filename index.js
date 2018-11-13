@@ -8,6 +8,8 @@ let gameStarted = false;
 let hasFinished = false;
 let wins = 0;
 
+//need to call the API and store it in a variable, call variable throughout functions.
+
 function get(url) {
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();
@@ -58,6 +60,66 @@ function updateDisplay() {
 
     if(remainingGuesses <= 0) {
         document.getElementById("you-lose").style.cssText = "display: block";
+        hasFinished = true;
+    }
+};
+
+function updateImage() {
+    document.getElementById("hangman-image").src = "/img/sad-dog-" + (maxTries - remainingGuesses) + ".jpg";
+};
+
+document.onkeydown = function(event) {
+    if(hasFinished) {
+        resetGame();
+        hasFinished = false;
+    } else {
+        if(event.keyCode >= 65 && event.keyCode <= 90) {
+            makeGuess(event.key.toLowerCase());
+        }
+    }
+};
+
+function makeGuess(letter) {
+    if (remainingGuesses > 0) {
+        if (!gameStarted) {
+            gameStarted = true;
+        }
+
+        if (guessedLetters.indexOf(letter) === -1) {
+            guessedLetters.push(letter);
+            evaluateGuess(letter);
+        }
+    }
+
+    updateDisplay();
+    checkWin();
+};
+
+function evaluateGuess(letter) {
+    var positions = [];
+
+    // Loop through word finding all instances of guessed letter, store the indicies in an array.
+    for (var i = 0; i < selectableWords[currentWordIndex].length; i++) {
+        if(selectableWords[currentWordIndex][i] === letter) {
+            positions.push(i);
+        }
+    }
+
+    if (positions.length <= 0) {
+        remainingGuesses--;
+        updateImage();
+    } else {
+        for(var i = 0; i < positions.length; i++) {
+            guessingWord[positions[i]] = letter;
+        }
+    }
+};
+
+function checkWin() {
+    if(guessingWord.indexOf("_") === -1) {
+        document.getElementById("you-win").style.cssText = "display: block";
+        document.getElementById("play-again").style.cssText= "display: block";
+        wins++;
         hasFinished = true;
     }
 };

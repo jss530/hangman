@@ -9,13 +9,17 @@
     <p>The rules are simple: the "Secret Keeper" will think of a word, and it is your job to try and guess it.</p>
     <p>You have 6 tries to guess the word. If you solve it, you win. If not, the Secret Keeper is the winner. Good luck!</p>
 
-    <button onClick=startGame()> Let's Play! </button>
+    <button onClick=startGame() id="start-game"> Let's Play! </button>
 
     <div id="you-win">
+      You win! Look how happy Baxter is.
+      <img src="happy-puppy.jpg" alt="Happy puppy" id="happy-puppy">
+      <button id="play-again"> Play again </button>
     </div>
 
     <div id="you-lose">
       <p>You lose! Baxter is sad now.</p>
+      <button id="play-again"> Try again </button>
     </div>
 
     <div id="total-wins">

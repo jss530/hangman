@@ -10,25 +10,30 @@
     <h1>Welcome to the Word Guessing Game.</h1>
     <p>The rules are simple: the "Secret Keeper" will think of a word, and it is your job to try and guess it.</p>
     <p>You have 6 tries to guess the word. If you solve it, you win. If not, the Secret Keeper is the winner. Good luck!</p>
-    <button onClick=startGame() id="start-game"> Let's Play! </button>
+    <br/>
+    <button onClick=resetGame() id="start-game"> Let's Play! </button>
 
 <div class="container-fluid">
 
   <div class="row">
     <div class="col-sm-3" id="total-wins">
+      <h3>Total wins: </h3>
     </div>
+  </div>
 
-    <div class="col-sm-3" id="you-win">
+  <div class="row">
+    <div class="col-sm-6" id="you-win">
       You win! Look how happy Baxter is.
-      <img src="./img/happy-puppy.jpg" alt="Happy puppy" id="happy-puppy">
+      <img src="./img/happy-puppy.jpg" alt="Happy puppy" class="img-fluid img-thumbnail" id="happy-puppy">
       <button id="play-again"> Play again </button>
     </div>
 
-    <div class="col-sm-3" id="you-lose">
+    <div class="col-sm-6" id="you-lose">
       <p>You lose! Baxter is sad now.</p>
       <button id="play-again"> Try again </button>
     </div>
   </div>
+
 
   <div class="row">
     <div class="col-sm-6" id="hangman-image">

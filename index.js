@@ -30,6 +30,17 @@ function get(url) {
   });
 }
 
+function getWord() {
+  get(WORD_API_URL)
+  .then(function(response) {
+    // let resp = JSON.parse(response);
+
+    console.log(response);
+  }, function(error) {
+    console.error("Failed!", error);
+  })
+}
+
 function resetGame() {
   //note - may need to update this later if you want to clear out more things to reset the game
     remainingGuesses = maxTries;
@@ -40,8 +51,8 @@ function resetGame() {
 
     document.getElementById("hangman-image").src = "";
 
-    document.getElementById("you-lose").style.cssText = "display: none";
-    document.getElementById("you-win").style.cssText = "display: none";
+    document.getElementById("you-lose").style.display = "none";
+    document.getElementById("you-win").style.display = "none";
 
     updateDisplay();
 };

@@ -13,7 +13,7 @@ let wins = 0;
 function get(url) {
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();
-    req.open('GET', url);
+    req.open('GET ALL', url, count: 20);
 
     req.onload = function() {
       if (req.status == 200) {
@@ -33,9 +33,8 @@ function get(url) {
 function getWord() {
   get(WORD_API_URL)
   .then(function(response) {
-    // let resp = JSON.parse(response);
-
-    console.log(response);
+    let resp = JSON.parse(response);
+    console.log(resp);
   }, function(error) {
     console.error("Failed!", error);
   })

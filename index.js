@@ -40,8 +40,8 @@ function resetGame() {
 
     document.getElementById("hangman-image").src = "";
 
-    document.getElementById("gameover").style.cssText = "display: none";
-    document.getElementById("youwin").style.cssText = "display: none";
+    document.getElementById("you-lose").style.cssText = "display: none";
+    document.getElementById("you-win").style.cssText = "display: none";
 
     updateDisplay();
 };

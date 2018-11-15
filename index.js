@@ -83,40 +83,28 @@ function updateImage() {
     document.getElementById("hangman-image").src = "/img/sad-dog-" + (maxTries - remainingGuesses) + ".jpg";
 };
 
-document.onkeydown = function(event) {
-    if(hasFinished) {
-        resetGame();
-        hasFinished = false;
-    } else {
-        if(event.keyCode >= 65 && event.keyCode <= 90) {
-            makeGuess(event.key.toLowerCase());
-        }
-    }
-};
-
 function makeGuess(letter) {
     if (remainingGuesses > 0) {
         if (!gameStarted) {
             gameStarted = true;
         }
 
+     // Make sure we didn't use this letter yet
         if (guessedLetters.indexOf(letter) === -1) {
             guessedLetters.push(letter);
             evaluateGuess(letter);
         }
     }
-
     updateDisplay();
     checkWin();
 };
 
 function evaluateGuess(letter) {
     let positions = [];
-    let selectedWord = getWord();
 
     // Loop through word finding all instances of guessed letter, store the indicies in an array.
-    for (var i = 0; i < selectedWord.length; i++) {
-        if(selectedWord[i] === letter) {
+    for (var i = 0; i < currentWord.length; i++) {
+        if(currentWord[i] === letter) {
             positions.push(i);
         }
     }
@@ -132,10 +120,21 @@ function evaluateGuess(letter) {
 };
 
 function checkWin() {
-    if(guessingWord.indexOf("_") === -1) {
+    if(guessingWord.indexOf(" _ ") === -1) {
         document.getElementById("you-win").style.cssText = "display: block";
         document.getElementById("play-again").style.cssText= "display: block";
         wins++;
         hasFinished = true;
+    }
+};
+
+document.onkeydown = function(event) {
+    if(hasFinished) {
+        resetGame();
+        hasFinished = false;
+    } else {
+        if(event.keyCode >= 65 && event.keyCode <= 90) {
+            makeGuess(event.key.toLowerCase());
+        }
     }
 };

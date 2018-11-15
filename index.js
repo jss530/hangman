@@ -63,7 +63,7 @@ function getWord() {
 
 function updateDisplay() {
 
-    document.getElementById("total-wins").innerText = "Total wins:" + wins;
+    document.getElementById("total-wins").innerText + wins;
     document.getElementById("current-word").innerText = "";
 
     for (var i = 0; i < guessingWord.length; i++) {

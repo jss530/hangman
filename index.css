@@ -1,3 +1,22 @@
+.jumbotron {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./img/thinking.jpg");
+  height: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.jumbotron-text {
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+
 #total-wins {
   float: left;
 }
@@ -13,4 +32,8 @@
 
 #you-lose {
   display: none;
+}
+
+#guesses-remaining {
+  font-size: 24px;
 }

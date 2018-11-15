@@ -13,7 +13,7 @@ let wins = 0;
 function get(url) {
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();
-    var params = "minLength=5";
+    var params = "difficulty=1&minLength=5";
 
     req.onload = function() {
       if (req.status == 200) {

@@ -1,8 +1,8 @@
 const WORD_API_URL = 'http://app.linkedin-reach.io/words';
 const maxTries = 6;
+var currentWord;
 let guessedLetters = [];
 let guessingWord = [];
-let currentWordIndex;
 let remainingGuesses = 0;
 let gameStarted = false;
 let hasFinished = false;
@@ -32,33 +32,34 @@ function get(url) {
   });
 }
 
+function resetGame() {
+    remainingGuesses = maxTries;
+    gameStarted = false;
+    guessedLetters = [];
+    guessingWord = [];
+
+    for (var i = 0; i < currentWord.length; i++) {
+      guessingWord.push("_ ");
+    }
+    document.getElementById("hangman-image").src = "";
+    document.getElementById("you-lose").style.display = "none";
+    document.getElementById("you-win").style.display = "none";
+
+    updateDisplay();
+};
+
 function getWord() {
   get(WORD_API_URL)
   .then(function(response) {
     //then, want to randomly select words from the full response here
     let wordResponse = response.split("\n");
     let word = wordResponse[Math.floor(Math.random() * wordResponse.length)];
-    return word;
+    currentWord = word;
+    resetGame();
   }, function(error) {
     console.error("Failed!", error);
   })
 }
-
-function resetGame() {
-  //note - may need to update this later if you want to clear out more things to reset the game
-    remainingGuesses = maxTries;
-    gameStarted = false;
-
-    guessedLetters = [];
-    guessingWord = [];
-
-    document.getElementById("hangman-image").src = "";
-
-    document.getElementById("you-lose").style.display = "none";
-    document.getElementById("you-win").style.display = "none";
-
-    updateDisplay();
-};
 
 function updateDisplay() {
 
@@ -110,11 +111,12 @@ function makeGuess(letter) {
 };
 
 function evaluateGuess(letter) {
-    var positions = [];
+    let positions = [];
+    let selectedWord = getWord();
 
     // Loop through word finding all instances of guessed letter, store the indicies in an array.
-    for (var i = 0; i < selectableWords[currentWordIndex].length; i++) {
-        if(selectableWords[currentWordIndex][i] === letter) {
+    for (var i = 0; i < selectedWord.length; i++) {
+        if(selectedWord[i] === letter) {
             positions.push(i);
         }
     }

@@ -36,8 +36,9 @@ function getWord() {
   get(WORD_API_URL)
   .then(function(response) {
     //then, want to randomly select words from the full response here
-
-    console.log(response);
+    let wordResponse = response.split("\n");
+    let word = wordResponse[Math.floor(Math.random() * wordResponse.length)];
+    return word;
   }, function(error) {
     console.error("Failed!", error);
   })

@@ -13,6 +13,7 @@ let wins = 0;
 function get(url) {
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();
+    var params = "minLength=5";
 
     req.onload = function() {
       if (req.status == 200) {
@@ -25,8 +26,8 @@ function get(url) {
     req.onerror = function() {
       reject(Error("Network Error"));
     };
-    req.open('GET', url);
 
+    req.open('GET', url+"?"+params);
     req.send();
   });
 }
@@ -34,6 +35,7 @@ function get(url) {
 function getWord() {
   get(WORD_API_URL)
   .then(function(response) {
+    //then, want to randomly select words from the full response here
 
     console.log(response);
   }, function(error) {

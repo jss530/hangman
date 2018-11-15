@@ -97,7 +97,7 @@ function makeGuess(letter) {
 
 function updateImage() {
     const img = document.getElementById("hangman-image")
-    img.setAttribute('src', "./img/sad-dog-" + (maxTries - remainingGuesses) + ".jpg");
+    img.setAttribute('src', "./img/sad-monkey-" + (maxTries - remainingGuesses) + ".jpg");
 };
 
 function evaluateGuess(letter) {

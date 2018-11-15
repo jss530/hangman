@@ -39,7 +39,7 @@ function resetGame() {
     guessingWord = [];
 
     for (var i = 0; i < currentWord.length; i++) {
-      guessingWord.push("_ ");
+      guessingWord.push(" _ ");
     }
     document.getElementById("hangman-image").src = "";
     document.getElementById("you-lose").style.display = "none";
@@ -63,14 +63,14 @@ function getWord() {
 
 function updateDisplay() {
 
-    document.getElementById("total-wins").innerText = wins;
+    document.getElementById("total-wins").innerText = "Total wins:" + wins;
     document.getElementById("current-word").innerText = "";
 
     for (var i = 0; i < guessingWord.length; i++) {
         document.getElementById("current-word").innerText += guessingWord[i];
     }
 
-    document.getElementById("guesses-remaining").innerText = remainingGuesses;
+    document.getElementById("guesses-remaining").innerText = "Guesses remaining:" + remainingGuesses;
     document.getElementById("wrong-guesses").innerText = guessedLetters;
 
     if(remainingGuesses <= 0) {

@@ -79,10 +79,6 @@ function updateDisplay() {
     }
 };
 
-function updateImage() {
-    document.getElementById("hangman-image").src = "/img/sad-dog-" + (maxTries - remainingGuesses) + ".jpg";
-};
-
 function makeGuess(letter) {
     if (remainingGuesses > 0) {
         if (!gameStarted) {
@@ -97,6 +93,11 @@ function makeGuess(letter) {
     }
     updateDisplay();
     checkWin();
+};
+
+function updateImage() {
+    const img = document.getElementById("hangman-image")
+    img.setAttribute('src', "./img/sad-dog-" + (maxTries - remainingGuesses) + ".jpg");
 };
 
 function evaluateGuess(letter) {

@@ -110,7 +110,7 @@ img #sad-monkey {
 
 .end-message {
   font-weight: bold;
-  text-align: center;
+  font-size: 1.33em;
 }
 
 #hangman-image button {

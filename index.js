@@ -96,7 +96,7 @@ function makeGuess(letter) {
             guessedLetters.push(letter);
             evaluateGuess(letter);
         } else {
-          alert("Letter already used. Try another one.")
+          alert("CHIP SAYS: You already used this letter. Try again!!")
         }
     }
     updateDisplay();

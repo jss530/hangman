@@ -133,12 +133,7 @@ function checkWin() {
 };
 
 document.onkeydown = function(event) {
-    if(hasFinished) {
-        resetGame();
-        hasFinished = false;
-    } else {
-        if(event.keyCode >= 65 && event.keyCode <= 90) {
-            makeGuess(event.key.toLowerCase());
-        }
-    }
+  if(event.keyCode >= 65 && event.keyCode <= 90) {
+      makeGuess(event.key.toLowerCase());
+  }
 };

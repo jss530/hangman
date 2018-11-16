@@ -17,8 +17,41 @@
     color: white;
 }
 
+.intro {
+  margin-bottom: 50px;
+  text-align: center;
+}
 
-#total-wins {
+.intro p {
+  font-size: 16px;
+}
+
+.intro button {
+  background-color: #555555;
+  color: white;
+  font-size: 24px;
+  padding: 14px 40px;
+}
+
+.intro button {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.intro button:hover {
+    background-color: white;
+    color: black;
+}
+
+.card-title {
+  font-size: 16px;
+}
+
+#reset-button {
+  align-items: center;
+}
+
+#hangman-image {
   float: left;
 }
 

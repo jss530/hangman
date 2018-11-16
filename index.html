@@ -20,10 +20,10 @@
     <p>You have 6 tries to guess the word. If you solve it, Chip is free! If not, the Secret Keeper is the winner and poor Chip is out of luck.</p>
     <p>Good luck!</p>
     <br/>
-    <button id="start-game" onClick=getWord()> Let's Play! </button>
+    <button id="start-game" onClick=getWord() window.location.href=".gameboard"> Let's Play! </button>
   </div>
 
-<div class="container-fluid">
+<div class="container">
 
   <div class="row">
     <div class="card col-sm-3" style="width: 18rem;">
@@ -62,24 +62,9 @@
     </div>
   </div>
 
-  <!-- <div class="row" id="hangman-image">
-    <div id="you-win">
-      <p>You beat the Keeper! Look how happy Chip is.<p/>
-      <img src="./img/happy-monkey.jpg" alt="Happy monkey" class="img-fluid" id="happy-monkey">
-      <button id="play-again" onClick=getWord()>Play again! </button>
-    </div>
-
-    <div id="you-lose">
-      <p>You lose, Secret Keeper wins! Chip is so sad now.</p>
-      <button id="play-again" onClick=getWord()>Try again</button>
-    </div>
-
-  </div> -->
-
 </div>
 
     <script src="index.js"></script>
-    <!-- <script src="bundle.js"></script> -->
 
   </body>
 </html>

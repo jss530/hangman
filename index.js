@@ -71,7 +71,7 @@ function updateDisplay() {
         document.getElementById("current-word").innerText += guessingWord[i];
     }
 
-    document.getElementById("guesses-remaining").innerText = "Guesses remaining:" + " " + remainingGuesses;
+    document.getElementById("guesses-left").innerText = remainingGuesses;
     document.getElementById("wrong-guesses").innerText = "Already used:" + " " + guessedLetters;
 
     if(remainingGuesses <= 0) {
@@ -99,15 +99,15 @@ function makeGuess(letter) {
     checkWin();
 };
 
-function updateImage() {
-    const img = document.getElementById("hangman-image")
-
-    if (document.getElementById("you-lose").style.display = "none") {
-      document.getElementById("you-lose").style.display = "block";
-    };
-
-    img.setAttribute('src', "./img/sad-monkey-" + (maxTries - remainingGuesses) + ".jpg");
-};
+// function updateImage() {
+//     const img = document.getElementById("hangman-image")
+//
+//     if (document.getElementById("you-lose").style.display = "none") {
+//       document.getElementById("you-lose").style.display = "block";
+//     };
+//
+//     img.setAttribute('src', "./img/sad-monkey-" + (maxTries - remainingGuesses) + ".jpg");
+// };
 
 function evaluateGuess(letter) {
     let positions = [];
@@ -131,6 +131,7 @@ function evaluateGuess(letter) {
 function checkWin() {
     if(guessingWord.indexOf(" _ ") === -1) {
         document.getElementById("you-lose").style.display = "none";
+        document.getElementById("guesses-remaining").style.display = "none";
         document.getElementById("you-win").style.display = "block";
         wins++;
         hasFinished = true;

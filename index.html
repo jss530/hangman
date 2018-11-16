@@ -43,6 +43,8 @@
 
     <div class="col-sm-3" id="hangman-image">
       <div id="guesses-remaining">
+        <h2>Guesses Left:</h2>
+        <p id="guesses-left"></p>
       </div>
 
       <div id="you-win">
@@ -51,9 +53,8 @@
       </div>
 
       <div id="you-lose">
-        <p>You lose, Secret Keeper wins! Chip is so sad now.</p>
-        <img src="./img/sad-monkey.jpg" alt="Sad monkey" class="img-fluid img-thumbnail" id="sad-monkey">
-        <button class="play-again" onClick=getWord()>Try again</button>
+        <p class="end-message">You lose, Secret Keeper wins! Chip is so sad now.</p>
+        <img src="./img/sad-monkey.jpg" alt="Sad monkey" class="img-fluid" id="sad-monkey">
       </div>
     </div>
   </div>

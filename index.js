@@ -2,6 +2,7 @@ const WORD_API_URL = 'http://app.linkedin-reach.io/words';
 const maxTries = 6;
 var currentWord;
 let guessedLetters = [];
+let incorrectLetters = [];
 let guessingWord = [];
 let remainingGuesses = 0;
 let gameStarted = false;
@@ -125,6 +126,7 @@ function checkWin() {
         document.getElementById("you-win").style.display = "block";
         wins++;
         hasFinished = true;
+        document.getElementById("play-again").style.display = "block";
     }
 };
 

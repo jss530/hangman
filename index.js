@@ -64,7 +64,7 @@ function getWord() {
 
 function updateDisplay() {
 
-    document.getElementById("total-wins").innerText + wins;
+    document.getElementById("total-wins").innerText = "Total wins:" + " " + wins;
     document.getElementById("current-word").innerText = "";
 
     for (var i = 0; i < guessingWord.length; i++) {
@@ -98,16 +98,6 @@ function makeGuess(letter) {
     updateDisplay();
     checkWin();
 };
-
-// function updateImage() {
-//     const img = document.getElementById("hangman-image")
-//
-//     if (document.getElementById("you-lose").style.display = "none") {
-//       document.getElementById("you-lose").style.display = "block";
-//     };
-//
-//     img.setAttribute('src', "./img/sad-monkey-" + (maxTries - remainingGuesses) + ".jpg");
-// };
 
 function evaluateGuess(letter) {
     let positions = [];

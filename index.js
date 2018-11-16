@@ -79,6 +79,8 @@ function updateDisplay() {
     if(remainingGuesses <= 0) {
         document.getElementById("guesses-remaining").style.display = "none";
         document.getElementById("you-lose").style.display = "block";
+        document.getElementById("current-word").innerText = currentWord;
+        document.getElementById("play-again").style.display = "block";
         hasFinished = true;
     }
 };
@@ -127,7 +129,6 @@ function checkWin() {
         document.getElementById("you-win").style.display = "block";
         wins++;
         hasFinished = true;
-        document.getElementById("wrong-guesses").innerText = currentWord;
         document.getElementById("play-again").style.display = "block";
     }
 };

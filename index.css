@@ -87,7 +87,7 @@
   background-color: black;
   color: white;
   align-items: center;
-  margin-left: 250px;
+  margin-left: 225px;
   margin-top: 20px;
   padding: 10px;
 }
@@ -95,6 +95,7 @@
 .gameboard button:hover {
   background-color: white;
   color: black;
+  border: 2px solid black;
 }
 
 .gameboard button:after {

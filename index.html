@@ -14,8 +14,10 @@
   </div>
 
   <div class="intro">
-    <p>The rules are simple: the "Secret Keeper" will think of a word, and it is your job to try and guess it.</p>
-    <p>You have 6 tries to guess the word. If you solve it, you win. If not, the Secret Keeper is the winner. Good luck!</p>
+    <p>The evil "Secret Keeper" is keeping Chip the monkey hostage!</p>
+    <p>The Secret Keeper will think of a word, and it is your job to try and guess it.</p>
+    <p>You have 6 tries to guess the word. If you solve it, Chip is free! If not, the Secret Keeper is the winner and poor Chip is out of luck.</p>
+    <p>Good luck!</p>
     <br/>
     <button id="start-game" onClick=getWord()> Let's Play! </button>
   </div>
@@ -23,7 +25,7 @@
 <div class="container-fluid">
 
   <div class="row">
-    <div class="card col-sm-4" style="width: 18rem;">
+    <div class="card col-sm-3" style="width: 18rem;">
       <img class="card-img-top" src="./img/trophy.png" alt="Trophy">
       <div class="card-body">
         <h5 class="card-title" id="total-wins">Total wins: </h5>
@@ -31,33 +33,44 @@
       </div>
     </div>
 
-    <div class="col-sm-8 gameboard">
+    <div class="col-sm-6 gameboard">
       <div id="current-word">
-      </div>
-
-      <div id="guesses-remaining">
       </div>
 
       <div id="wrong-guesses">
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-6" id="hangman-image">
+    <div class="col-sm-3" id="hangman-image">
+      <div id="guesses-remaining">
+      </div>
+
       <div id="you-win">
-        You win! Look how happy Chip is.
-        <img src="./img/happy-monkey.jpg" alt="Happy monkey" class="img-fluid img-thumbnail" id="happy-monkey">
-        <button id="play-again" onClick=getWord()>Play again! </button>
+        <p class="end-message">You beat the Keeper! Look how happy Chip is.<p/>
+        <img src="./img/happy-monkey.jpg" alt="Happy monkey" class="img-fluid" id="happy-monkey">
       </div>
 
-      <div class="col-sm-6" id="you-lose">
-        <p>You lose! Chip is sad now.</p>
-        <button id="play-again" onClick=getWord()>Try again</button>
+      <div id="you-lose">
+        <p>You lose, Secret Keeper wins! Chip is so sad now.</p>
+        <img src="./img/sad-monkey.jpg" alt="Sad monkey" class="img-fluid img-thumbnail" id="sad-monkey">
+        <button class="play-again" onClick=getWord()>Try again</button>
       </div>
-
     </div>
   </div>
+
+  <!-- <div class="row" id="hangman-image">
+    <div id="you-win">
+      <p>You beat the Keeper! Look how happy Chip is.<p/>
+      <img src="./img/happy-monkey.jpg" alt="Happy monkey" class="img-fluid" id="happy-monkey">
+      <button id="play-again" onClick=getWord()>Play again! </button>
+    </div>
+
+    <div id="you-lose">
+      <p>You lose, Secret Keeper wins! Chip is so sad now.</p>
+      <button id="play-again" onClick=getWord()>Try again</button>
+    </div>
+
+  </div> -->
 
 </div>
 

@@ -54,7 +54,7 @@
 }
 
 .gameboard {
-
+  text-align: center;
 }
 
 #guesses-remaining {
@@ -75,9 +75,15 @@
   float: left;
 }
 
-#you-win img #happy-monkey {
-  height: 300px;
-  width: 300px;
+.end-message {
+  font-weight: bold;
+  text-align: center;
+}
+
+#hangman-image button {
+  background-color: black;
+  color: white;
+  margin-left: 30px;
 }
 
 #you-win {

@@ -53,6 +53,24 @@
   margin-left: 30px;
 }
 
+.gameboard {
+
+}
+
+#guesses-remaining {
+  font-size: 24px;
+}
+
+#current-word {
+  font-size: 75px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#wrong-guesses {
+  font-size: 24px;
+}
+
 #hangman-image {
   float: left;
 }
@@ -68,16 +86,4 @@
 
 #you-lose {
   display: none;
-}
-
-#guesses-remaining {
-  font-size: 24px;
-}
-
-#current-word {
-  font-size: 24px;
-}
-
-#wrong-guesses {
-  font-size: 24px;
 }

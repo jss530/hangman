@@ -22,28 +22,26 @@
 
 <div class="container-fluid">
 
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="./img/trophy.png" alt="Trophy">
-    <div class="card-body">
-      <h5 class="card-title" id="total-wins">Total wins: </h5>
-      <a href="#" class="btn" id="reset-button" onClick=resetWins()>Reset wins</a>
+  <div class="row">
+    <div class="card col-sm-4" style="width: 18rem;">
+      <img class="card-img-top" src="./img/trophy.png" alt="Trophy">
+      <div class="card-body">
+        <h5 class="card-title" id="total-wins">Total wins: </h5>
+        <a href="#" class="btn" id="reset-button" onClick=resetWins()>Reset wins</a>
+      </div>
+    </div>
+
+    <div class="col-sm-8 gameboard">
+      <div id="current-word">
+      </div>
+
+      <div id="guesses-remaining">
+      </div>
+
+      <div id="wrong-guesses">
+      </div>
     </div>
   </div>
-
-
-  <!-- <div class="row">
-    <!<div class="col-sm-6" id="you-win">
-      You win! Look how happy Chip is.
-      <img src="./img/monkey.jpg" alt="Happy monkey" class="img-fluid img-thumbnail" id="happy-monkey">
-      <button id="play-again"> Play again </button>
-    </div> -->
-
-
-    <!-- <div class="col-sm-6" id="you-lose">
-      <p>You lose! Chip is sad now.</p>
-      <button id="play-again"> Try again </button>
-    </div>
-  </div> -->
 
   <div class="row">
     <div class="col-sm-6" id="hangman-image">
@@ -59,20 +57,9 @@
       </div>
 
     </div>
-
-    <div class="col-sm-6" id="gameboard">
-      <div id="guesses-remaining">
-      </div>
-
-      <div id="current-word">
-      </div>
-
-      <div class="col" id="wrong-guesses">
-      </div>
-    </div>
   </div>
 
-  </div>
+</div>
 
     <script src="index.js"></script>
     <!-- <script src="bundle.js"></script> -->

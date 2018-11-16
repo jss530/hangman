@@ -47,8 +47,10 @@
   font-size: 16px;
 }
 
-#reset-button {
-  align-items: center;
+.card .btn {
+  background-color: black;
+  color: white;
+  margin-left: 30px;
 }
 
 #hangman-image {

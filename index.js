@@ -132,6 +132,13 @@ function checkWin() {
     }
 };
 
+function resetWins() {
+  wins = 0;
+  
+  document.getElementById("total-wins").innerText + wins;
+  getWord();
+}
+
 document.onkeydown = function(event) {
   if(event.keyCode >= 65 && event.keyCode <= 90) {
       makeGuess(event.key.toLowerCase());

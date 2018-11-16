@@ -55,6 +55,7 @@ function getWord() {
     let wordResponse = response.split("\n");
     let word = wordResponse[Math.floor(Math.random() * wordResponse.length)];
     currentWord = word;
+    console.log(currentWord)
     resetGame();
   }, function(error) {
     console.error("Failed!", error);
@@ -70,11 +71,11 @@ function updateDisplay() {
         document.getElementById("current-word").innerText += guessingWord[i];
     }
 
-    document.getElementById("guesses-remaining").innerText = "Guesses remaining:" + remainingGuesses;
-    document.getElementById("wrong-guesses").innerText = guessedLetters;
+    document.getElementById("guesses-remaining").innerText = "Guesses remaining:" + " " + remainingGuesses;
+    document.getElementById("wrong-guesses").innerText = "Already used:" + " " + guessedLetters;
 
     if(remainingGuesses <= 0) {
-        document.getElementById("you-lose").style.cssText = "display: block";
+        document.getElementById("you-lose").style.display = "block";
         hasFinished = true;
     }
 };
@@ -89,6 +90,8 @@ function makeGuess(letter) {
         if (guessedLetters.indexOf(letter) === -1) {
             guessedLetters.push(letter);
             evaluateGuess(letter);
+        } else {
+          alert("Letter already used. Try another one.")
         }
     }
     updateDisplay();
@@ -122,8 +125,8 @@ function evaluateGuess(letter) {
 
 function checkWin() {
     if(guessingWord.indexOf(" _ ") === -1) {
-        document.getElementById("you-win").style.cssText = "display: block";
-        document.getElementById("play-again").style.cssText= "display: block";
+        document.getElementById("you-win").style.display = "block";
+        document.getElementById("play-again").style.display= "block";
         wins++;
         hasFinished = true;
     }

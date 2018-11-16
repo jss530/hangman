@@ -1,6 +1,6 @@
 .jumbotron {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./img/thinking.jpg");
-  height: 65%;
+  height: 50%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,7 +22,7 @@
   float: left;
 }
 
-#you-win img #happy-puppy {
+#you-win img #happy-monkey {
   height: 300px;
   width: 300px;
 }
@@ -36,5 +36,13 @@
 }
 
 #guesses-remaining {
+  font-size: 24px;
+}
+
+#current-word {
+  font-size: 24px;
+}
+
+#wrong-guesses {
   font-size: 24px;
 }

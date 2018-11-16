@@ -42,7 +42,8 @@ function resetGame() {
     for (var i = 0; i < currentWord.length; i++) {
       guessingWord.push(" _ ");
     }
-    document.getElementById("hangman-image").src = "";
+
+    document.getElementById("guesses-remaining").style.display = "block";
     document.getElementById("you-lose").style.display = "none";
     document.getElementById("you-win").style.display = "none";
 
@@ -126,6 +127,7 @@ function checkWin() {
         document.getElementById("you-win").style.display = "block";
         wins++;
         hasFinished = true;
+        document.getElementById("wrong-guesses").innerText = currentWord;
         document.getElementById("play-again").style.display = "block";
     }
 };

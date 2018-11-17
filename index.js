@@ -29,6 +29,7 @@ function get(url) {
     };
 
     req.open('GET', url+"?"+params+"&callback=?");
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     req.send();
   });
 }

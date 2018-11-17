@@ -9,8 +9,6 @@ let gameStarted = false;
 let hasFinished = false;
 let wins = 0;
 
-//need to call the API and store it in a variable, call variable throughout functions.
-
 function get(url) {
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();

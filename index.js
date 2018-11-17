@@ -1,4 +1,5 @@
 const WORD_API_URL = 'http://app.linkedin-reach.io/words';
+const wordUrl = new URL(WORD_API_URL)
 const maxTries = 6;
 var currentWord;
 let guessedLetters = [];
@@ -50,7 +51,7 @@ function resetGame() {
 };
 
 function getWord() {
-  get(WORD_API_URL)
+  get(wordUrl)
   .then(function(response) {
     let wordResponse = response.split("\n");
     let word = wordResponse[Math.floor(Math.random() * wordResponse.length)];

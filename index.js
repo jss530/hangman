@@ -28,7 +28,7 @@ function get(url) {
       reject(Error("Network Error"));
     };
 
-    req.open('GET', url+"?"+params);
+    req.open('GET', url+"?"+params+"&callback=?");
     req.send();
   });
 }
@@ -53,7 +53,6 @@ function resetGame() {
 function getWord() {
   get(WORD_API_URL)
   .then(function(response) {
-    //then, want to randomly select words from the full response here
     let wordResponse = response.split("\n");
     let word = wordResponse[Math.floor(Math.random() * wordResponse.length)];
     currentWord = word;
@@ -91,7 +90,6 @@ function makeGuess(letter) {
             gameStarted = true;
         }
 
-     // Make sure we didn't use this letter yet
         if (guessedLetters.indexOf(letter) === -1) {
             guessedLetters.push(letter);
             evaluateGuess(letter);
@@ -106,7 +104,6 @@ function makeGuess(letter) {
 function evaluateGuess(letter) {
     let positions = [];
 
-    // Loop through word finding all instances of guessed letter, store the indicies in an array.
     for (var i = 0; i < currentWord.length; i++) {
         if(currentWord[i] === letter) {
             positions.push(i);

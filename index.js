@@ -5,7 +5,6 @@ let guessedLetters = [];
 let incorrectLetters = [];
 let guessingWord = [];
 let remainingGuesses = 0;
-let gameStarted = false;
 let hasFinished = false;
 let wins = 0;
 
@@ -84,11 +83,6 @@ function updateDisplay() {
 };
 
 function makeGuess(letter) {
-    if (remainingGuesses > 0) {
-        if (!gameStarted) {
-            gameStarted = true;
-        }
-
         if (guessedLetters.indexOf(letter) === -1) {
             guessedLetters.push(letter);
             evaluateGuess(letter);

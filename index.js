@@ -8,6 +8,7 @@ let remainingGuesses = 0;
 let gameStarted = false;
 let hasFinished = false;
 let wins = 0;
+let consecutiveWins = 0;
 
 function get(url) {
   return new Promise(function(resolve, reject) {
@@ -50,21 +51,18 @@ function resetGame() {
 };
 
 function getWord() {
-  get(WORD_API_URL)
+  return get(WORD_API_URL)
   .then(function(response) {
     let wordResponse = response.split("\n");
-    let word = wordResponse[Math.floor(Math.random() * wordResponse.length)];
-    currentWord = word;
-    console.log(currentWord)
-    resetGame();
+    return wordResponse[Math.floor(Math.random() * wordResponse.length)];
+    // currentWord = word;
+    // console.log(currentWord);
   }, function(error) {
     console.error("Failed!", error);
   })
 }
 
 function updateDisplay() {
-
-    document.getElementById("total-wins").innerText = "Total wins:" + " " + wins;
     document.getElementById("current-word").innerText = "";
 
     for (var i = 0; i < guessingWord.length; i++) {
@@ -74,13 +72,6 @@ function updateDisplay() {
     document.getElementById("guesses-left").innerText = remainingGuesses;
     document.getElementById("wrong-guesses").innerText = "Already used:" + " " + guessedLetters;
 
-    if(remainingGuesses <= 0) {
-        document.getElementById("guesses-remaining").style.display = "none";
-        document.getElementById("you-lose").style.display = "block";
-        document.getElementById("current-word").innerText = currentWord;
-        document.getElementById("play-again").style.display = "block";
-        hasFinished = true;
-    }
 };
 
 function makeGuess(letter) {
@@ -97,7 +88,7 @@ function makeGuess(letter) {
         }
     }
     updateDisplay();
-    checkWin();
+    endGame();
 };
 
 function evaluateGuess(letter) {
@@ -118,14 +109,24 @@ function evaluateGuess(letter) {
     }
 };
 
-function checkWin() {
+function endGame() {
     if(guessingWord.indexOf(" _ ") === -1) {
         document.getElementById("you-lose").style.display = "none";
         document.getElementById("guesses-remaining").style.display = "none";
         document.getElementById("you-win").style.display = "block";
         wins++;
+        consecutiveWins++;
         hasFinished = true;
         document.getElementById("play-again").style.display = "block";
+        document.getElementById("total-wins").innerText = "Total wins:" + " " + wins;
+        document.getElementById("streak").innerText = "Consecutive wins:" + " " + consecutiveWins;
+    } else if (remainingGuesses <= 0) {
+      document.getElementById("guesses-remaining").style.display = "none";
+      document.getElementById("you-lose").style.display = "block";
+      document.getElementById("current-word").innerText = currentWord;
+      document.getElementById("play-again").style.display = "block";
+      consecutiveWins = 0;
+      hasFinished = true;
     }
 };
 
@@ -136,8 +137,19 @@ function resetWins() {
   getWord();
 }
 
+function gameManager() {
+  getWord()
+  .then(function(newWord) {
+    currentWord = newWord;
+    console.log(currentWord);
+    resetGame();
+  })
+}
+
 document.onkeydown = function(event) {
   if(event.keyCode >= 65 && event.keyCode <= 90) {
       makeGuess(event.key.toLowerCase());
   }
 };
+
+document.addEventListener("DOMContentLoaded", getWord);

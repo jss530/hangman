@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="shortcut icon" href="#" />
-    
+
   </head>
 
 <body>
@@ -21,7 +21,7 @@
     <p>You have 6 tries to guess the word. If you solve it, Chip is free! If not, the Secret Keeper is the winner and poor Chip is out of luck.</p>
     <p>Good luck!</p>
     <br/>
-    <button id="start-game" onClick=getWord() window.location.href=".gameboard"> Let's Play! </button>
+    <button id="start-game" onClick=gameManager() window.location.href=".gameboard"> Let's Play! </button>
   </div>
 
 <div class="container">
@@ -31,6 +31,7 @@
       <img class="card-img-top" src="./img/trophy.png" alt="Trophy">
       <div class="card-body">
         <h5 class="card-title" id="total-wins">Total wins: </h5>
+        <h5 class="card-title" id="streak">Consecutive wins: </h5>
         <a href="#" class="btn" id="reset-button" onClick=resetWins()>Reset wins</a>
       </div>
     </div>
@@ -42,7 +43,7 @@
       <div id="wrong-guesses">
       </div>
 
-      <button class="btn" id="play-again" onClick=getWord()>Play again! </button>
+      <button class="btn" id="play-again" onClick=gameManager()>Play again! </button>
     </div>
 
     <div class="col-sm-3" id="hangman-image">
